@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="UserService-MySql" />
+        <module name="GuideService-MongoDB" />
+        <module name="HotelService-MySql" />
+        <module name="BookingService-MySql" />
+        <module name="AdminService-MySql" />
+        <module name="TPS-ServiceRegistry" />
+        <module name="VehicleService-MongoDB" />
+        <module name="TPS-AuthService" />
+        <module name="TPS-Gateway" />
+        <module name="PackegeService-MongoDB" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AdminService-MySql" options="-parameters" />
+      <module name="BookingService-MySql" options="-parameters" />
+      <module name="GuideService-MongoDB" options="-parameters" />
+      <module name="HotelService-MySql" options="-parameters" />
+      <module name="PackegeService-MongoDB" options="-parameters" />
+      <module name="TPS-AuthService" options="-parameters" />
+      <module name="TPS-Gateway" options="-parameters" />
+      <module name="TPS-ServiceRegistry" options="-parameters" />
+      <module name="UserService-MySql" options="-parameters" />
+      <module name="VehicleService-MongoDB" options="-parameters" />
+    </option>
+  </component>
+</project>
