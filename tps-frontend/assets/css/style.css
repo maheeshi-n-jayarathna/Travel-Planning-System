@@ -1367,3 +1367,19 @@ body {
     font-size: 50px;
     color: #ff0000;
 }
+
+#customer-manage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+#customer-form {
+    padding: 25px;
+    margin: 30px 0;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #FFF;
+}

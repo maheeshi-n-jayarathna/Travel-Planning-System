@@ -775,11 +775,85 @@
     </div>
 
     <div id="customer-section" class="body-container">
-        
+        <div id="customer-manage">
+            <form id="customer-form">
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Name" id='txtCustomerName' required />
+                    <label for="txtCustomerName" class="package__form__label">Name</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Address" id='txtCustomerAddress' required />
+                    <label for="txtCustomerAddress" class="package__form__label">Address</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Nic" id='txtCustomerNic' required />
+                    <label for="txtCustomerNic" class="package__form__label">Nic</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Email" id='txtCustomerEmail' required />
+                    <label for="txtCustomerEmail" class="package__form__label">Email</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtCustomerProfile' />
+                    <label for="txtCustomerProfile" class="package__form__label file__input__label">Profile</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="User Name" id='txtCustomerUserName' required />
+                    <label for="txtCustomerUserName" class="package__form__label">User Name</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Password" id='txtCustomerPassword' required />
+                    <label for="txtCustomerPassword" class="package__form__label">Password</label>
+                </div>
+
+                <div class="text-center" style="margin-top: 20px;">
+                    <button id="btnSaveCustomer" class="btn btn-first"
+                        style="background-color: #2ecc71 !important;">Save</button>
+                    <button id="btnUpdateCustomer" class="btn btn-first"
+                        style="background-color: #f39c12 !important;">Update</button>
+                    <button id="btnDeleteCustomer" class="btn btn-first"
+                        style="background-color: #e74c3c !important;">Delete</button>
+                    <button id="btnResetCustomer" class="btn btn-first"
+                        style="background-color: #c0392b !important;">Reset</button>
+                </div>
+                <input type="hidden" id="txtCustomerId" value="">
+            </form>
+        </div>
+        <div class="modal fade" id="guideDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog text-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="vehicle_details_heder">Guide details</div>
+                                <div id="guide_details_body"></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="vehicle_details_heder">Nic details</div>
+                                <div id="guide_nic_details_body"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="btn_guide_edit" type="button" data-bs-dismiss="modal"
+                            class="btn btn-warning">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="guide-body">
+            <div class="row" style="margin-bottom: 20px;">
+            </div>
+        </div>
     </div>
 
     <div id="user-section" class="body-container">
-       
+        
     </div>
 
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->

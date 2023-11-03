@@ -6,11 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="UserService-MySql" />
         <module name="GuideService-MongoDB" />
         <module name="HotelService-MySql" />
         <module name="BookingService-MySql" />
-        <module name="AdminService-MySql" />
         <module name="TPS-ServiceRegistry" />
         <module name="VehicleService-MongoDB" />
         <module name="TPS-AuthService" />
@@ -18,6 +16,10 @@
         <module name="PackegeService-MongoDB" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AdminService-MySql" target="17" />
+      <module name="UserService-MySql" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
