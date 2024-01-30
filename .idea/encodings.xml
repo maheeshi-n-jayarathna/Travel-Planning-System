@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tsp-backend/BookingService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tsp-backend/GuideService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tsp-backend/HotelService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tsp-backend/PackageService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tsp-backend/TPS-AuthService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tsp-backend/TPS-Gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tsp-backend/TPS-ServiceRegistry/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tsp-backend/VehicleService/src/main/java" charset="UTF-8" />
+  </component>
+</project>

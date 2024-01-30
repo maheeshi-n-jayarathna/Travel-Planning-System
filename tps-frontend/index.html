@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planning System</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/4.1.0/cropper.min.css">
+</head>
+
+<body id="body-pd">
+    <header id="header" class="header">
+        <div id="header-text" class="header-text">Dashboard</div>
+        <button id="btn-open-login" type="button" class="btn btn-login">Login</button>
+        <div id="header_img" class="header_img">
+            <img id="img-profile"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/330px-User_icon_2.svg.png"
+                alt="profile image">
+        </div>
+        <input type="hidden" id="userRole" value="">
+        <input type="hidden" id="userId" value="">
+    </header>
+    <div id="login-section">
+        <div class="container">
+            <div class="screen">
+                <div class="screen__content">
+                    <a href="index.html">
+                        <i id="btn-login-close" class="bx bx-x"></i>
+                    </a>
+                    <form id="login-form" class="login">
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input id="txtLoginUsername" type="text" class="login__input" placeholder="User name">
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input id="txtLoginPassword" type="password" class="login__input" placeholder="Password">
+                        </div>
+                        <div class="password-section">
+                            <div>
+                                <input id="isRememberMe" type="checkbox">
+                                <span>Remember Me</span>
+                            </div>
+                            <span id="btn-go-forget-password">forget password</span>
+                        </div>
+                        <button id="btn-login-now" class="button login__submit">
+                            <span>Log In Now</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>
+                        <div class="btn-go-customer-reg">
+                            <p>Don't Have An Account ? </p>
+                            <span id="btn-go-customer-reg" style="color: #fff;font-weight: 700;">Register Now</span>
+                        </div>
+                    </form>
+                    <form id="register-form" style="display: none;" class="login">
+                        <div class="login__field">
+                            <label for="txtCustomerName" class="form-label" style="margin: 0 15px 0 0;">Name</label><br>
+                            <input type="text" class="login__input" style="padding: 0;margin: 0;" id="txtCustomerName">
+                        </div>
+                        <div class="login__field">
+                            <label for="txtCustomerEmail" class="form-label"
+                                style="margin: 0 15px 0 0;">Email</label><br>
+                            <input type="email" class="login__input" style="padding: 0;margin: 0;"
+                                id="txtCustomerEmail">
+                        </div>
+                        <div class="login__field">
+                            <label for="txtCustomerNic" class="form-label" style="margin: 0 15px 0 0;">Nic</label><br>
+                            <input type="text" class="login__input" style="padding: 0;margin: 0;" id="txtCustomerNic">
+                        </div>
+                        <div class="login__field">
+                            <label for="txtCustomerAddress" class="form-label"
+                                style="margin: 0 15px 0 0;">Address</label><br>
+                            <input type="text" class="login__input" style="padding: 0;margin: 0;"
+                                id="txtCustomerAddress">
+                        </div>
+                        <div class="login__field">
+                            <label for="txtCustomerUserName" class="form-label" style="margin: 0 15px 0 0;">User
+                                Name</label><br>
+                            <input type="text" class="login__input" style="padding: 0;margin: 0;"
+                                id="txtCustomerUserName">
+                        </div>
+                        <div class="login__field">
+                            <label for="txtCustomerPassword" class="form-label"
+                                style="margin: 0 15px 0 0;">Password</label><br>
+                            <input type="text" class="login__input" style="padding: 0;margin: 0;"
+                                id="txtCustomerPassword">
+                        </div>
+                        <div class="login__field">
+                            <label for="txtCustomerRePassword" class="form-label" style="margin: 0 15px 0 0;">Re-enter
+                                Password</label><br>
+                            <input type="text" class="login__input" style="padding: 0;margin: 0;"
+                                id="txtCustomerRePassword">
+                        </div>
+                        <div class="login__field">
+                            <label for="goCustomerImageChooser" class="form-label"
+                                style="margin: 0 15px 0 0;">Profile</label>
+                            <button id="goCustomerImageChooser" type="button" class="btn" style="padding: 0;margin: 0;">
+                                Choose file
+                            </button>
+                        </div>
+                        <button id="btn-customer-create" class="button login__submit">
+                            <span class="button__text">Ceate Account</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>
+                        <button id="btn-go-login" class="button login__submit">
+                            <i class="button__icon fas fa-chevron-left" style="margin-left: 0;"></i>
+                            <span class="button__text" style="margin-left: auto;">BACK to Login</span>
+                        </button>
+                    </form>
+
+                </div>
+                <div class="screen__background">
+                    <span class="screen__background__shape screen__background__shape4"></span>
+                    <span class="screen__background__shape screen__background__shape3"></span>
+                    <span class="screen__background__shape screen__background__shape2"></span>
+                    <span class="screen__background__shape screen__background__shape1"></span>
+                </div>
+            </div>
+        </div>
+        <div id="customerImageChooser">
+            <div class="row">
+                <div class="col-sm-5">
+                    <input type="file" id="customer-img-file-input" class="form-control mb-3" accept="image/*">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="image-container">
+                                <img src="" id="customer-img-for-crop" class="img-fluid" draggable="false">
+                            </div>
+                            <button id="crop-button" class="btn btn-first btn-block mt-3">Crop
+                                Image</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div id="cropped-img-view">
+                        <img id="cropped-image" src="">
+                        <div style="justify-content: space-around;display: flex;">
+                            <button id="cropped-image-done" class="btn btn-first">Done</button>
+                            <button id="cropped-image-close" class="btn btn-first">Cose</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="nav-bar" class="l-navbar">
+        <nav class="nav">
+            <div>
+                <a href="#" class="nav_logo">
+                    <i class='bx bx-menu nav_logo-icon' id="header-toggle"></i>
+                    <span class="nav_logo-name">Next Travel</span>
+                </a>
+                <div class="nav_list">
+                    <a id="btn-dashboard" href="#" class="nav_link active">
+                        <i class='bx bx-grid-alt nav_icon'></i>
+                        <span class="nav_name">Dashboard</span>
+                    </a>
+                    <a id="btn-package" href="#" class="nav_link">
+                        <i class='bx bx-package nav_icon'></i>
+                        <span class="nav_name">Package</span>
+                    </a>
+                    <a id="btn-hotel" href="#" class="nav_link">
+                        <i class='bx bx-hotel nav_icon'></i>
+                        <span class="nav_name">Hotel</span>
+                    </a>
+                    <a id="btn-vehicle" href="#" class="nav_link">
+                        <i class='bx bx-car nav_icon'></i>
+                        <span class="nav_name">Vehicle</span>
+                    </a>
+                    <a id="btn-guide" href="#" class="nav_link">
+                        <i class='bx bx-male nav_icon'></i>
+                        <span class="nav_name">Guide</span>
+                    </a>
+                    <a id="btn-booking" href="#" class="nav_link">
+                        <i class='bx bx-bookmarks nav_icon'></i>
+                        <span class="nav_name">Booking</span>
+                    </a>
+                    <a id="btn-customer" href="#" class="nav_link">
+                        <i class='bx bx-user-pin nav_icon'></i>
+                        <span class="nav_name">Customer</span>
+                    </a>
+                    <a id="btn-user" href="#" class="nav_link">
+                        <i class='bx bx-user nav_icon'></i>
+                        <span class="nav_name">User</span>
+                    </a>
+                </div>
+                <a href="index.html" id="btn-sign-out" class="nav_link">
+                    <i class='bx bx-log-out nav_icon'></i>
+                    <span class="nav_name">SignOut</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+    <div id="dashboard-section" class="body-container">
+        <div id="dashboard-chart">
+
+        </div>
+        <div id="dashboard-service">
+            <div>OUR SERVICE</div>
+        </div>
+        <div id="dashboard-package">
+            <div class="main-text"><span>P</span>ackage</div>
+            <div id="dash-package-body">
+                <div class="row"></div>
+            </div>
+            <div class="text-center">
+                <button id="see-more-package" class="btn btn-first">See more</button>
+            </div>
+        </div>
+        <div id="dashboard-hotel">
+            <div class="main-text"><span>H</span>otel</div>
+            <div id="dash-hotel-body"></div>
+        </div>
+        <div id="dashboard-vehicle">
+            <div class="main-text"><span>V</span>ehicle</div>
+            <div id="dash-vehicle-body"></div>
+        </div>
+        <div id="dashboard-about">
+
+        </div>
+    </div>
+    <div id="package-section" class="body-container">
+        <div id="package-manage">
+            <form id="package-form">
+                <div class="package__form__group field">
+                    <select style="font-size: 12px;" class="form-select" id='txtPackageCategory'>
+                        <option selected value="">Select Category</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Mid-level">Mid-level</option>
+                        <option value="Luxury">Luxury</option>
+                        <option value="Super Luxury">Super Luxury</option>
+                    </select>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Area" id='txtPackageArea' required />
+                    <label for="txtPackageArea" class="package__form__label">Area</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="number" class="package__form__field" placeholder="Price" id='txtPackagePrice'
+                        required />
+                    <label for="txtPackagePrice" class="package__form__label">Price</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="number" class="package__form__field" placeholder="No of Days" id='txtPackageDays'
+                        required />
+                    <label for="txtPackageDays" class="package__form__label">No of Days</label>
+                </div>
+                <div class="text-center" style="margin-top: 20px;">
+                    <button id="btnSavePackage" class="btn btn-first"
+                        style="background-color: #2ecc71 !important;">Save</button>
+                    <button id="btnUpdatePackage" class="btn btn-first"
+                        style="background-color: #f39c12 !important;">Update</button>
+                    <button id="btnDeletePackage" class="btn btn-first"
+                        style="background-color: #e74c3c !important;">Delete</button>
+                    <button id="btnResetPackage" class="btn btn-first"
+                        style="background-color: #c0392b !important;">Reset</button>
+                </div>
+                <input type="hidden" id="txtPackageId" value="">
+            </form>
+        </div>
+        <div id="package-body">
+            <div class="row"></div>
+        </div>
+    </div>
+    <div id="hotel-section" class="body-container">
+        <div id="hotel-manage">
+            <div class="row">
+                <div class="col-lg-6">
+                    <form id="hotel-form">
+                        <label class="form-header" style="color: #7d7d7d;">Manage Hotel</label>
+                        <div class="package__form__group field">
+                            <input type="text" class="package__form__field" placeholder="Name" id='txtHotelName'
+                                required />
+                            <label for="txtHotelName" class="package__form__label">Name</label>
+                        </div>
+                        <div class="package__form__group field">
+                            <select style="font-size: 12px;" class="form-select" id='txtHotelCategory'>
+                                <option selected>Select Category</option>
+                                <option value="2">Two Star</option>
+                                <option value="3">Tree Star</option>
+                                <option value="4">Four Star</option>
+                                <option value="5">Five Star</option>
+                            </select>
+                        </div>
+                        <div class="package__form__group field">
+                            <input type="text" class="package__form__field" placeholder="Address" id='txtHotelAddress'
+                                required />
+                            <label for="txtHotelAddress" class="package__form__label">Address</label>
+                        </div>
+                        <div class="package__form__group field">
+                            <input type="text" class="package__form__field" placeholder="Location" id='txtHotelLocation'
+                                required />
+                            <label for="txtHotelLocation" class="package__form__label">Location</label>
+                        </div>
+                        <div class="package__form__group field">
+                            <input type="email" class="package__form__field" placeholder="Email" id='txtHotelEmail'
+                                required />
+                            <label for="txtHotelEmail" class="package__form__label">Email</label>
+                        </div>
+                        <div class="package__form__group field">
+                            <input type="tel" class="package__form__field" placeholder="Phone" id='txtHotelPhone'
+                                required />
+                            <label for="txtHotelPhone" class="package__form__label">Phone</label>
+                        </div>
+                        <div class="package__form__group field">
+                            <input type="checkbox" class="package__form__field" placeholder="Pet Allowed"
+                                id='txtHotelIsPetAllowed' required />
+                            <label for="txtHotelIsPetAllowed" class="package__form__label">Pet Allowed</label>
+                        </div>
+                        <div class="package__form__group field">
+                            <input type="text" class="package__form__field" placeholder="Cancel Criteria"
+                                id='txtHotelCancelCriteria' required />
+                            <label for="txtHotelCancelCriteria" class="package__form__label">Cancel Criteria</label>
+                        </div>
+                        <div class="hotel-action text-center" style="margin-top: 20px;">
+                            <button id="btnSaveHotel" class="btn btn-first"
+                                style="background-color: #2ecc71 !important;">Save</button>
+                            <button id="btnUpdateHotel" class="btn btn-first"
+                                style="background-color: #f39c12 !important;">Update</button>
+                            <button id="btnDeleteHotel" class="btn btn-first"
+                                style="background-color: #e74c3c !important;">Delete</button>
+                            <button id="btnResetHotel" class="btn btn-first"
+                                style="background-color: #c0392b !important;">Reset</button>
+                        </div>
+                        <input type="hidden" id="txtHotelId" value="">
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <form id="hotel-option-form">
+                        <label class="form-header" style="color: #7869ff;">Manage Option</label>
+                        <div class="package__form__group field">
+                            <select style="font-size: 12px;" class="form-select" id='txtHotelNamewithAddress'>
+                            </select>
+                        </div>
+                        <div class="package__form__group field">
+                            <select style="font-size: 12px;" class="form-select" id='txtHotelOptionType'>
+                                <option selected>Select Type</option>
+                                <option value="Full">Full</option>
+                                <option value="Half">Half</option>
+                            </select>
+                        </div>
+                        <div class="package__form__group field">
+                            <select style="font-size: 12px;" class="form-select" id='txtHotelOptionCapacity'>
+                                <option selected>Select Capacity</option>
+                                <option value="Double">Double</option>
+                                <option value="Triple">Triple</option>
+                            </select>
+                        </div>
+                        <div class="package__form__group field">
+                            <input type="number" class="package__form__field" placeholder="Price"
+                                id='txtHotelOptionPrice' required />
+                            <label for="txtHotelOptionPrice" class="package__form__label">Price</label>
+                        </div>
+                        <div class="hotel-action text-center" style="margin-top: 20px;">
+                            <button id="btnSaveHotelOption" class="btn btn-first"
+                                style="background-color: #2ecc71 !important;">Save</button>
+                            <button id="btnUpdateHotelOption" class="btn btn-first"
+                                style="background-color: #f39c12 !important;">Update</button>
+                            <button id="btnDeleteHotelOption" class="btn btn-first"
+                                style="background-color: #e74c3c !important;">Delete</button>
+                            <button id="btnResetHotelOption" class="btn btn-first"
+                                style="background-color: #c0392b !important;">Reset</button>
+                        </div>
+                        <input type="hidden" id="txtHotelOptionId" value="">
+                        <input type="hidden" id="txtOptionFormHotelId" value="">
+                    </form>
+                    <label id="lblHotelNameWithAddress">Hotel name with address</label>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-primary">
+                                <th scope="col">Type</th>
+                                <th scope="col">Capacity</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hotelOptionTableBody">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-primary">
+                                <th scope="col">Name</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Loaction</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Pet Allowed</th>
+                                <th scope="col">Cancel Criteria</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblHotelBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-details-view">
+            <div class="row text-center">
+                <div class="col ">
+                    <div class="hotel-details-card">
+                        <a href="" id="close-hotel-details-view">
+                            <i class="bx bx-x"></i>
+                        </a>
+                        <div class="hotel-details-name">Blue Oceian</div>
+                        <div class="hotel-details-address">Colombo</div>
+                        <div class="hotel-details-category">
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                        </div>
+                        <div class="hotel-details-location">location</div>
+                        <div class="hotel-details-email">email</div>
+                        <div class="hotel-details-phone">phone</div>
+                        <div class="hotel-details-pet">is pet allowed</div>
+                        <div class="hotel-details-criteria">cancel criteria</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="hotel-body">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+    <div id="vehicle-section" class="body-container">
+        <div id="vehicle-manage">
+            <form id="vehicle-form">
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Vehicle License Number"
+                        id='txtVehicleLicenseNumber' required />
+                    <label for="txtVehicleLicenseNumber" class="package__form__label">Vehicle License Number</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Brand" id='txtVehicleBrand' required />
+                    <label for="txtVehicleBrand" class="package__form__label">Brand</label>
+                </div>
+                <div class="package__form__group field">
+                    <select style="font-size: 12px;" class="form-select" id='txtVehicleCategory'>
+                        <option value="" selected>Select Category</option>
+                        <option value="Economy">Economy</option>
+                        <option value="Mid-Range">Mid-Range</option>
+                        <option value="Luxury">Luxury</option>
+                        <option value="Super Luxury">Super Luxury</option>
+                    </select>
+                </div>
+                <div class="package__form__group field">
+                    <select style="font-size: 12px;" class="form-select" id='txtVehicleFuelType'>
+                        <option value="" selected>Select Fuel Type</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Petrol">Petrol</option>
+                    </select>
+                </div>
+                <div class="package__form__group field">
+                    <input type="checkbox" class="package__form__field" placeholder="Hybrid" id='txtVehicleIsHybrid'
+                        required />
+                    <label for="txtVehicleIsHybrid" class="package__form__label">Hybrid</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="number" class="package__form__field" placeholder="Fuel Usage Per KM"
+                        id='txtVehicleFuelUsagePerKM' required />
+                    <label for="txtVehicleFuelUsagePerKM" class="package__form__label">
+                        Fuel Usage <small>(Per KM)</small></label>
+                </div>
+                <br>
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtVehicleFrontImage' />
+                    <label for="txtVehicleFrontImage" class="package__form__label file__input__label">Front
+                        Image</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtVehicleRearImage' />
+                    <label for="txtVehicleRearImage" class="package__form__label file__input__label">Rear Image</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtVehicleSideImage' />
+                    <label for="txtVehicleSideImage" class="package__form__label file__input__label">Side Image</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtVehicleFrontInteriorImage' />
+                    <label for="txtVehicleFrontInteriorImage" class="package__form__label file__input__label">Front
+                        Interior Image</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtVehicleRearInteriorImage' />
+                    <label for="txtVehicleRearInteriorImage" class="package__form__label file__input__label">Rear
+                        Interior Image</label>
+                </div>
+                <br>
+                <div class="package__form__group field">
+                    <input type="number" class="package__form__field" placeholder="Price Per KM"
+                        id='txtVehiclePricePerKM' required />
+                    <label for="txtVehiclePricePerKM" class="package__form__label">Price Per KM</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="number" class="package__form__field" placeholder="Capacity" id='txtVehicleCapacity'
+                        required />
+                    <label for="txtVehicleCapacity" class="package__form__label">Capacity</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Type" id='txtVehicleType' required />
+                    <label for="txtVehicleType" class="package__form__label">Type</label>
+                </div>
+                <div class="package__form__group field">
+                    <select style="font-size: 12px;" class="form-select" id='txtVehicleTransmission'>
+                        <option value="" selected>Select Transmission Type</option>
+                        <option value="Auto">Auto</option>
+                        <option value="Manual">Manual</option>
+                    </select>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Driver Name" id='txtVehicleDriverName'
+                        required />
+                    <label for="txtVehicleDriverName" class="package__form__label">Driver Name</label>
+                </div>
+                <br>
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtVehicleDriverLicenseFrontImage' />
+                    <label for="txtVehicleDriverLicenseFrontImage"
+                        class="package__form__label file__input__label">Driver License Front Image
+                    </label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtVehicleDriverLicenseBackImage' />
+                    <label for="txtVehicleDriverLicenseBackImage" class="package__form__label file__input__label">Driver
+                        License Back Image
+                    </label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Phone Number" id='txtVehiclePhone'
+                        required />
+                    <label for="txtVehiclePhone" class="package__form__label">Phone Number</label>
+                </div>
+                <div class="text-center" style="margin-top: 20px;">
+                    <button id="btnSaveVehicle" class="btn btn-first"
+                        style="background-color: #2ecc71 !important;">Save</button>
+                    <button id="btnUpdateVehicle" class="btn btn-first"
+                        style="background-color: #f39c12 !important;">Update</button>
+                    <button id="btnDeleteVehicle" class="btn btn-first"
+                        style="background-color: #e74c3c !important;">Delete</button>
+                    <button id="btnResetVehicle" class="btn btn-first"
+                        style="background-color: #c0392b !important;">Reset</button>
+                </div>
+                <input type="hidden" id="txtVehicleId" value="">
+            </form>
+        </div>
+
+        <!-- only admins -->
+        <div class="modal fade" id="vehicleDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog text-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="vehicle_details_heder">Vehicle details</div>
+                                <div id="vehicle_details_body"></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="vehicle_details_heder">Driver details</div>
+                                <div id="vehicle_driver_details_body"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="btn_vehicle_edit" type="button" data-bs-dismiss="modal"
+                            class="btn btn-warning">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="vehicle-body">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+    <div id="guide-section" class="body-container">
+        <div id="guide-manage">
+            <form id="guide-form">
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Name" id='txtGuideName' required />
+                    <label for="txtGuideName" class="package__form__label">Name</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Address" id='txtGuideAddress'
+                        required />
+                    <label for="txtGuideAddress" class="package__form__label">Address</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Nic" id='txtGuideNic' required />
+                    <label for="txtGuideNic" class="package__form__label">Nic</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Phone" id='txtGuidePhone' required />
+                    <label for="txtGuidePhone" class="package__form__label">Phone</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="number" class="package__form__field" placeholder="Price Per Day"
+                        id='txtGuidePricePerDay' required />
+                    <label for="txtGuidePricePerDay" class="package__form__label">Price Per Day</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtGuideProfile' />
+                    <label for="txtGuideProfile" class="package__form__label file__input__label">Profile</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtGuideIdCardFront' />
+                    <label for="txtGuideIdCardFront" class="package__form__label file__input__label">Id Card
+                        Front</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtGuideIdCardBack' />
+                    <label for="txtGuideIdCardBack" class="package__form__label file__input__label">Id Card Back</label>
+                </div>
+
+                <div class="text-center" style="margin-top: 20px;">
+                    <button id="btnSaveGuide" class="btn btn-first"
+                        style="background-color: #2ecc71 !important;">Save</button>
+                    <button id="btnUpdateGuide" class="btn btn-first"
+                        style="background-color: #f39c12 !important;">Update</button>
+                    <button id="btnDeleteGuide" class="btn btn-first"
+                        style="background-color: #e74c3c !important;">Delete</button>
+                    <button id="btnResetGuide" class="btn btn-first"
+                        style="background-color: #c0392b !important;">Reset</button>
+                </div>
+                <input type="hidden" id="txtGuideId" value="">
+            </form>
+        </div>
+        <div class="modal fade" id="guideDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog text-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="vehicle_details_heder">Guide details</div>
+                                <div id="guide_details_body"></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="vehicle_details_heder">Nic details</div>
+                                <div id="guide_nic_details_body"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="btn_guide_edit" type="button" data-bs-dismiss="modal"
+                            class="btn btn-warning">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="guide-body">
+            <div class="row" style="margin-bottom: 20px;">
+            </div>
+        </div>
+    </div>
+    <div id="booking-section" class="body-container">
+        <div id="addNewBooking">
+            <div id="booking-form">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div id="bookingCustomer" class="package__form__group field">
+                            <small style="font-size: 11px;">Customer</small>
+                            <select style="font-size: 12px;" class="form-select" id='selectBookingCustomer'>
+                                <option value="" selected>Select Package</option>
+                            </select>
+                        </div>
+                        <div class="package__form__group field">
+                            <small style="font-size: 11px;">Package</small>
+                            <select style="font-size: 12px;" class="form-select" id='selectBookingPackage'>
+                                <option value="" selected>Select Package</option>
+                            </select>
+                            <div id="packageDetailsCard">
+                            </div>
+                        </div>
+                        <div class="package__form__group field">
+                            <small style="font-size: 11px;">Guide ( Optional )</small>
+                            <select style="font-size: 12px;" class="form-select" id='selectBookingGuide'>
+                                <option value="" selected>Select Guide</option>
+                            </select>
+                            <div id="guideDetailsCard" style="margin-top: 25px;">
+                            </div>
+                        </div>
+                        <div class="package__form__group field">
+                            <small style="font-size: 11px;">Hotel ( Optional )</small>
+                            <select style="font-size: 12px;" class="form-select" id='selectBookingHotelOption'>
+                            </select>
+                            <div id="hotelOptionDetailsCard">
+                            </div>
+                        </div>
+                        <div class="package__form__group field">
+                            <small style="font-size: 11px;">Vehicle ( Optional )</small>
+                            <small style="font-size: 11px;font-weight: 700;">You can add multiple vehicle</small>
+                            <select style="font-size: 12px;" class="form-select" id='selectBookingVehicle'>
+                                <option value="" selected>Select Vehicle</option>
+                            </select>
+                            <div id="vehicleDetailsCard">
+                            </div>
+                        </div>
+                        <div class="vehicle_booking">
+                            <div class="package__form__group field" style="width: 50%;">
+                                <input type="number" class="package__form__field" placeholder="Distance"
+                                    id='txtBookingVehicleDistance' required />
+                                <label for="txtBookingVehicleDistance" class="package__form__label">Distance</label>
+                            </div>
+                            <div>
+                                <button id="addToCart" class="btn btn-first" style="font-size: 12px;">Add to
+                                    cart</button>
+                            </div>
+                        </div>
+                        <div style="margin-top: 25px;">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="table-secondary">
+                                        <th class="col-lg-2">License Number</th>
+                                        <th class="col-lg-3">Front Image</th>
+                                        <th class="col-lg-2">Brand</th>
+                                        <th class="col-lg-2">Distance</th>
+                                        <th class="col-lg-2">Price Per km</th>
+                                        <th class="col-lg-1">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="vehicle_cart">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="package__form__group field">
+                            <input type="number" class="package__form__field" placeholder="No Of Children"
+                                id='txtBookingNoOfChildren' required />
+                            <label for="txtBookingNoOfChildren" class="package__form__label">No Of Children</label>
+                        </div>
+                        <div class="package__form__group field">
+                            <input type="number" class="package__form__field" placeholder="No Of Adults"
+                                id='txtBookingNoOfAdults' required />
+                            <label for="txtBookingNoOfAdults" class="package__form__label">No Of Adults</label>
+                        </div>
+                        <div class="package__form__group field">
+                            <input type="date" class="package__form__field" placeholder="Start Date"
+                                id='txtBookingStartDate' required />
+                            <label for="txtBookingStartDate" class="package__form__label">Start Date</label>
+                        </div>
+                        <div class="package__form__group field">
+                            <input type="date" class="package__form__field" placeholder="End Date"
+                                id='txtBookingEndDate' required />
+                            <label for="txtBookingEndDate" class="package__form__label">End Date</label>
+                        </div>
+                        <div class="package__form__group field">
+                            <input type="number" class="package__form__field" placeholder="Down Payment"
+                                id='txtBookingDownPayment' required />
+                            <label for="txtBookingDownPayment" class="package__form__label">Down Payment</label>
+                        </div>
+                        <div class="booking_total text-center">
+                            Total : <span id="total">0</span>
+                        </div>
+                        <div class="booking_sub_total text-center">
+                            Sub Total : <span id="subTotal">0</span>
+                        </div>
+                        <div class="booking_place text-center">
+                            <button id="add_book" class="btn btn-primary">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- if you are customer -->
+        <div id="booking-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="table-secondary text-center">
+                        <th class="col-lg-1">Package</th>
+                        <th class="col-lg-1">Guide</th>
+                        <th class="col-lg-1">Hotel Option</th>
+                        <th class="col-lg-1">Vehicle </th>
+                        <th class="col-lg-1">Children</th>
+                        <th class="col-lg-1">Adults</th>
+                        <th class="col-lg-1">Date</th>
+                        <th class="col-lg-1">Start Date</th>
+                        <th class="col-lg-1">End Date</th>
+                        <th class="col-lg-1">Status</th>
+                        <th class="col-lg-1">Down pyment</th>
+                        <th class="col-lg-1">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="bookin_table_body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="textModal" tabindex="-1" aria-labelledby="textModal" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="manageCustomerImageChooser">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type="file" id="manage-customer-img-file-input" class="form-control mb-3"
+                                    accept="image/*">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="image-container">
+                                            <img src="" id="manage-customer-img-for-crop" class="img-fluid"
+                                                draggable="false">
+                                        </div>
+                                        <button id="manage-crop-button" class="btn btn-first btn-block mt-3">Crop
+                                            Image</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div id="manage-cropped-img-view">
+                                    <img id="manage-cropped-image" src="">
+                                    <div style="justify-content: space-around;display: flex;">
+                                        <button id="manage-cropped-image-done" data-bs-dismiss="modal"
+                                            class="btn btn-first">Done</button>
+                                        <button id="manage-cropped-image-close" data-bs-dismiss="modal"
+                                            class="btn btn-first">Cose</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="customer-section" class="body-container">
+        <div id="customer-manage">
+            <form id="customer-form">
+                <input type="hidden" id="txtManageCustomerId" value="">
+                <input type="hidden" id="txtManageCustomerProfile" value="">
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Name" id='txtManageCustomerName'
+                        required />
+                    <label for="txtManageCustomerName" class="package__form__label">Name</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Nic" id='txtManageCustomerNic'
+                        required />
+                    <label for="txtManageCustomerNic" class="package__form__label">Nic</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Email" id='txtManageCustomerEmail'
+                        required />
+                    <label for="txtManageCustomerEmail" class="package__form__label">Email</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Address" id='txtManageCustomerAddress'
+                        required />
+                    <label for="txtManageCustomerAddress" class="package__form__label">Address</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Username"
+                        id='txtManageCustomerUsername' required />
+                    <label for="txtManageCustomerUsername" class="package__form__label">Username</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Password"
+                        id='txtManageCustomerPassword' required />
+                    <label for="txtManageCustomerPassword" class="package__form__label">Password</label>
+                </div>
+                <div class="login__field">
+                    <label for="goManageCustomerImageChooser" class="form-label"
+                        style="margin: 15px 0 0 0;">Profile</label>
+                    <button id="goManageCustomerImageChooser" data-bs-toggle="modal" data-bs-target="#textModal"
+                        type="button" class="btn" style="padding: 0;margin: 0;">
+                        Choose file
+                    </button>
+                </div>
+                <div class="text-center" style="margin-top: 20px;">
+                    <button id="btnSaveCustomer" class="btn btn-first"
+                        style="background-color: #2ecc71 !important;">Save</button>
+                    <button id="btnUpdateCustomer" class="btn btn-first"
+                        style="background-color: #f39c12 !important;">Update</button>
+                    <button id="btnDeleteCustomer" class="btn btn-first"
+                        style="background-color: #e74c3c !important;">Delete</button>
+                    <button id="btnResetCustomer" class="btn btn-first"
+                        style="background-color: #c0392b !important;">Reset</button>
+                </div>
+                <input type="hidden" id="txtCustomerId" value="">
+            </form>
+        </div>
+        <div id="customer-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="table-secondary text-center">
+                        <th class="col-lg-2">Name</th>
+                        <th class="col-lg-2">Nic</th>
+                        <th class="col-lg-2">email</th>
+                        <th class="col-lg-2">address</th>
+                        <th class="col-lg-1">userName</th>
+                        <th class="col-lg-2">Profile</th>
+                        <th class="col-lg-1">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="customer_table_body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="user-section" class="body-container">
+        <div id="user-manage">
+            <form id="user-form">
+                <input type="hidden" id="txtManageUserId" value="">
+                <input type="hidden" id="imgNicFront" value="">
+                <input type="hidden" id="imgNicBack" value="">
+                
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Name" id='txtUserName' required />
+                    <label for="txtUserName" class="package__form__label">Name</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Nic" id='txtUserNic'
+                        required />
+                    <label for="txtUserNic" class="package__form__label">Nic</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Email" id='txtUserEmail'
+                        required />
+                    <label for="txtUserEmail" class="package__form__label">Email</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Address" id='txtUserAddress'
+                        required />
+                    <label for="txtUserAddress" class="package__form__label">Address</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Username"
+                        id='txtUserUsername' required />
+                    <label for="txtUserUsername" class="package__form__label">Username</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Password"
+                        id='txtUserPassword' required />
+                    <label for="txtUserPassword" class="package__form__label">Password</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="text" class="package__form__field" placeholder="Phone"
+                        id='txtUserPhone' required />
+                    <label for="txtUserPhone" class="package__form__label">Phone</label>
+                </div>
+
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtUSerNicFront' />
+                    <label for="txtUSerNicFront" class="package__form__label file__input__label">Nic Front
+                        Image</label>
+                </div>
+                <div class="package__form__group field">
+                    <input type="file" class="file__input" accept="image/*" id='txtUSerNicBack' />
+                    <label for="txtUSerNicBack" class="package__form__label file__input__label">Nic Back
+                        Image</label>
+                </div>
+
+                <div class="text-center" style="margin-top: 20px;">
+                    <button id="btnSaveUser" class="btn btn-first"
+                        style="background-color: #2ecc71 !important;">Save</button>
+                    <button id="btnUpdateUser" class="btn btn-first"
+                        style="background-color: #f39c12 !important;">Update</button>
+                    <button id="btnDeleteUser" class="btn btn-first"
+                        style="background-color: #e74c3c !important;">Delete</button>
+                    <button id="btnResetUser" class="btn btn-first"
+                        style="background-color: #c0392b !important;">Reset</button>
+                </div>
+            </form>
+        </div>
+        <div id="user-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="table-secondary text-center">
+                        <th class="col-lg-2">Name</th>
+                        <th class="col-lg-1">Nic</th>
+                        <th class="col-lg-2">email</th>
+                        <th class="col-lg-2">address</th>
+                        <th class="col-lg-1">userName</th>
+                        <th class="col-lg-1">Phone</th>
+                        <th class="col-lg-1">Nic front</th>
+                        <th class="col-lg-1">Nic back</th>
+                        <th class="col-lg-1">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="user_table_body">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="assets/lib/cropper/cropper.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script type="module" src="controller/LoginController.js"></script>
+    <script type="module" src="controller/DashBoardController.js"></script>
+    <script type="module" src="controller/PackageController.js"></script>
+    <script type="module" src="controller/HotelController.js"></script>
+    <script type="module" src="controller/VehicleController.js"></script>
+    <script type="module" src="controller/GuideController.js"></script>
+    <script type="module" src="controller/BookinController.js"></script>
+    <script type="module" src="controller/CustomerController.js"></script>
+    <script type="module" src="controller/UserController.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>
